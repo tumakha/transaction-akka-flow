@@ -1,0 +1,43 @@
+[
+  {
+    "transactionId": "9001",
+    "successful": true
+  },
+  {
+    "transactionId": "9002",
+    "successful": true
+  },
+  {
+    "transactionId": "9003",
+    "successful": true
+  },
+  {
+    "transactionId": "9004",
+    "successful": true
+  },
+  {
+    "transactionId": "9005",
+    "successful": true
+  },
+  {
+    "errorMsg": "transactionId is required",
+    "successful": false
+  },
+  {
+    "transactionId": "3",
+    "errorMsg": "amount is required",
+    "successful": false
+  },
+  {
+    "errorMsg": "transactionId is required",
+    "successful": false
+  },
+  {
+    "transactionId": "5",
+    "error": {
+      "exception": "java.util.concurrent.CompletionException",
+      "message": "java.lang.IllegalArgumentException: Amount can't be zero"
+    },
+    "successful": false
+  }
+]

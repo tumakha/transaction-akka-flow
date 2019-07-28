@@ -1,0 +1,5 @@
+{}
+{invalid json}
+{"transactionId":"3"}
+{"amount": 100.55}
+{"transactionId":"5", "amount": 0}

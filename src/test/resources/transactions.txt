@@ -1,0 +1,10 @@
+{"transactionId": "9001", "amount": 100.55}
+{"transactionId": "9002", "amount": 675.99}
+{"transactionId": "9003", "fromAccount": 1000111, "toAccount": 1000222, "amount": 6.35, "currencyCode": "GBP", "description": "COSTA COFFEE", "time": "2019-07-29T11:30:24"}
+{"transactionId": "9004", "fromAccount": 1000111, "toAccount": 1000333, "amount": 6.35, "currencyCode": "GBP", "description": "STARBUCKS COFFEE", "time": "2019-07-29T11:45:00"}
+{"transactionId": "9005", "amount": 50, "currencyCode": "GBP", "description": "AMAZON UK RETAIL AMAZON.CO.UK", "time": "2019-07-29T12:25:44"}
+{}
+{invalid json}
+{"transactionId":"3"}
+{"amount": 100.55}
+{"transactionId":"5", "amount": 0}
