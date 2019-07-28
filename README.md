@@ -1,4 +1,4 @@
-# Transaction AKKA flow - test task
+# Transaction Akka flow - test task
 
 ### Prerequisites
 
