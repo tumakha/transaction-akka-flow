@@ -29,11 +29,11 @@ interface JsonSupport {
       .registerModule(new JavaTimeModule());
 
   default <T> Flow<String, T, NotUsed> parseJson(Class<T> valueClass) {
-    return Flow.fromFunction(json -> fromJson(json, valueClass));
+    return Flow.<String, T>fromFunction(json -> fromJson(json, valueClass)).async();
   }
 
   default <T> Flow<T, String, NotUsed> convertToJson() {
-    return Flow.fromFunction(this::toJson);
+    return Flow.<T, String>fromFunction(this::toJson).async();
   }
 
   default <T> T fromJson(String json, Class<T> valueClass) throws IOException {

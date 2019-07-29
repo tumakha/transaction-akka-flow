@@ -23,7 +23,8 @@ interface FileSource {
   default Source<String, CompletionStage<IOResult>> linesFromFile(String filename) {
     return FileIO.fromPath(getPath(filename), maxLineSize)
         .via(Framing.delimiter(ByteString.fromString(lineSeparator), maxLineSize, ALLOW))
-        .map(ByteString::utf8String);
+        .map(ByteString::utf8String)
+        .async();
   }
 
   default Path getPath(String filename) {
