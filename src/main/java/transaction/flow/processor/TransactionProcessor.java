@@ -12,6 +12,7 @@ import transaction.flow.domain.Transaction;
 import transaction.flow.domain.TransactionResult;
 import transaction.flow.service.Service;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 
@@ -43,7 +44,8 @@ public final class TransactionProcessor extends StreamProcessor implements FileS
         .via(parseJson(Transaction.class))
         .via(processTransaction())
         .via(convertToJson())
-        .grouped(100) // TransactionResult objects grouped into groups of 100 and converted into one JSON String
+        // TransactionResult objects grouped into groups of 100 and converted into one JSON String
+        .groupedWithin(100, Duration.ofSeconds(2))
         .map(List::toString);
   }
 
