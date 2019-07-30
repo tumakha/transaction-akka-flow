@@ -12,6 +12,7 @@ import transaction.flow.domain.Transaction;
 import transaction.flow.domain.TransactionResult;
 import transaction.flow.service.Service;
 
+import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 import static java.util.Arrays.asList;
@@ -41,7 +42,9 @@ public final class TransactionProcessor extends StreamProcessor implements FileS
     return linesFromFile(filename)
         .via(parseJson(Transaction.class))
         .via(processTransaction())
-        .via(convertToJson());
+        .via(convertToJson())
+        .grouped(100) // TransactionResult objects grouped into groups of 100 and converted into one JSON String
+        .map(List::toString);
   }
 
   Flow<Transaction, TransactionResult, NotUsed> processTransaction() {

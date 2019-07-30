@@ -49,7 +49,8 @@ public class TransactionProcessorTest implements ResourceReader {
     CompletionStage<Done> done = transactionProcessor.processFromFiles(getAbsolutePath("transactions.txt"));
     done.toCompletableFuture().join();
 
-    assertThatJson(results.toString()).isEqualTo(getContent("transaction-results.json"));
+    assertThat(results.size(), equalTo(1));
+    assertThatJson(results.get(0)).isEqualTo(getContent("transaction-results.json"));
 
     assertThat(errors.size(), equalTo(1));
 
